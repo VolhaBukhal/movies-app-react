@@ -1,0 +1,12 @@
+.HeaderName {
+    font-size: 18px;
+    text-align: left;
+    text-transform: lowercase;
+    color: var(--primery-color);
+}
+.HeaderTitle {
+    margin-top: 30px;
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    text-align: left;
+}
