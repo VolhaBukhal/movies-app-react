@@ -1,9 +1,12 @@
-import React from 'react'
+import React, {FC} from 'react'
+import style from './SearchButton.module.css'
 
-const SearchButton = () => {
+interface MyProps {
+    handleClick: () => void;
+}
+const SearchButton: FC<MyProps> = ({handleClick}) => {
     return (
-        <button>Search</button>
-
+        <button className={style.searchBtn} onClick={handleClick}>Search</button>
     );
 };
 

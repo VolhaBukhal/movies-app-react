@@ -5,7 +5,7 @@ const Header = () => {
     return (
         <div>
             <h1 className={style.HeaderName}>Movies Search Resource</h1>
-            <h2 className={style.HeaderTitle}>Find you movie</h2>
+            <h2 className={style.HeaderTitle}>Find your movie</h2>
         </div>
     );
 };

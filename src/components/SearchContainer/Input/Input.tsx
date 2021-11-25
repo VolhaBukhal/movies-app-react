@@ -1,10 +1,19 @@
-import React from 'react'
+import React, {FC} from 'react'
+import style from './Input.module.css'
 
-const Input = () => {
+interface MyProps {
+    handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+} 
+
+const Input: FC<MyProps> = ({handleChange}) => {
     return (
         <div>
-            <input type="text" placeholder="what kind of movie do you search?" />
-
+            <input 
+                type="text" 
+                className={style.Input} 
+                placeholder="What are you looking for?"
+                onChange={handleChange}
+            />
         </div>
     );
 };

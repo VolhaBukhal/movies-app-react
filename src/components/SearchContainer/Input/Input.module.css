@@ -1,0 +1,20 @@
+.Input {
+    border: none;
+    width: 100%;
+    padding: 8px 10px;
+    box-sizing: border-box;
+    margin-top: 20px;
+    line-height: 30px;
+    color: #979292;
+    font-size: 20px;
+    background-color: black;
+    border-bottom: 2px solid var(--primery-color);
+}
+
+.Input:focus {
+    outline: none;
+}
+.Input::placeholder {
+    color: rgba(151, 146, 146, 0.6);
+}
+
