@@ -1,0 +1,14 @@
+.MovieResultsRow {
+    margin-top: 20px;
+    padding: 8px 4px;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--secondary-color);
+}
+
+.MovieSortBtn {
+    display: flex;
+    width: 40%;
+    justify-content: space-between;
+    align-items: center;
+}
