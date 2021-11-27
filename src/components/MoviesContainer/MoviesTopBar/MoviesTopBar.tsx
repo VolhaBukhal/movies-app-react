@@ -1,7 +1,7 @@
 import React from 'react';
 import { MovieFilter } from 'store/action';
 import style from './MoviesTopBar.module.css'
-import Button from '../../Button/Button'
+// import Button from '../../Button/Button'
 import Checkbox from '../../SearchContainer/Checkbox/Checkbox'
 
 
@@ -13,7 +13,7 @@ const MoviesTopBar = () => {
                 Sort by 
                 {Object.values(MovieFilter).map(item => 
                 // <Button key={item} name={item} handleClick={() => console.log({item})}/>
-                <Checkbox name={item}/>
+                <Checkbox key={item} name={item}/>
                 )}
             </div>
         </div>

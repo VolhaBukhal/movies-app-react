@@ -5,5 +5,6 @@ export interface Movie {
     vote_average: number;
     overview: string;
     poster_path: string;
+    budget: number;
     genres: string[];
 }
