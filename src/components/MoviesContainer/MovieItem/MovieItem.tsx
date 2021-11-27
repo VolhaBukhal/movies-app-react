@@ -6,6 +6,8 @@ interface MyProps {
     movie: Movie;
 }
 const MovieItem:FC<MyProps> = ({movie}) => {
+
+
     return (
         <div className={style.MovieItem}>
             <div className={style.MovieImg}>
@@ -13,7 +15,7 @@ const MovieItem:FC<MyProps> = ({movie}) => {
             </div>
             <div className={style.MovieInfo}>
                 <div className={style.MovieTitle}>{movie.title}</div>
-                <div className={style.MovieYear}>{movie.release_date}</div>
+                <div className={style.MovieYear}>{movie.release_date.split('-')[0]}</div>
             </div>
             <div className={style.MovieGenre}>{
                 movie.genres.reduce( (prev, next) => `${prev} & ${next}`)

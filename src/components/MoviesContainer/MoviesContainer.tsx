@@ -27,12 +27,12 @@ const MoviesContainer = () => {
             {
                 isLoaded ? (
                     <>
-                    <div className={style.MovieContainer}> is loaded
+                    <div className={style.MovieContainer}>
                         {movies.map(movie => <MovieItem key={movie.id} movie={movie}/>) }
                     </div>
                     </>
                 ) : (
-                    <div> is loading.......</div>
+                    <div> is loading...</div>
                 )
             }
         </div>

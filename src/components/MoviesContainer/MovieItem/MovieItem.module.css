@@ -1,0 +1,47 @@
+.MovieItem {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 30%;
+}
+
+.MovieImg {
+    margin-top: 15px;
+    position: relative;
+    width: 100%;
+    height: 400px;
+}
+
+.MovieImg img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.MovieInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+}
+
+.MovieTitle {
+    align-self: start;
+    text-align-last: left;
+}
+
+.MovieYear {
+    padding: 2px 4px;
+    border: 1px solid var(--secondary-color);
+    text-align-last: right;
+}
+
+.MovieGenre{
+    color: var(--secondary-color);
+    text-align-last: left;
+}
