@@ -1,0 +1,26 @@
+.Footer {
+    margin-top: 20px;
+    width: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+  
+.FooterGithub svg {
+    transition: 0.4s ease all;
+}
+
+/* .GithubLink {
+    text-decoration: none;
+    transition: 0.5s ease all;
+    color: #000000;
+}
+.GithubLink:hover {
+    color: var(--primery-color);
+} */
+
+.FooterGithub svg:hover {
+    fill: var(--primery-color);
+  }
+
