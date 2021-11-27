@@ -8,12 +8,16 @@ interface MyProps {
 const Input: FC<MyProps> = ({handleChange}) => {
     return (
         <div>
-            <input 
-                type="text" 
-                className={style.Input} 
-                placeholder="What are you looking for?"
-                onChange={handleChange}
-            />
+            <label htmlFor="searchInput">
+                <input
+                    id="searchInput" 
+                    type="text" 
+                    className={style.Input} 
+                    placeholder="What are you looking for?"
+                    onChange={handleChange}
+                />
+            </label>
+           
         </div>
     );
 };

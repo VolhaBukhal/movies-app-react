@@ -15,6 +15,7 @@
     text-transform: uppercase;
     padding: 4px 8px;
     background-color: #3D3E3E;
+    color: var(--secondary-color);
     border-radius: 3px;
     cursor: pointer;
     transition: 0.4s ease all;

@@ -3,6 +3,7 @@ import './App.css';
 import SearchContainer from './components/SearchContainer'
 import Header from './components/Header'
 import MoviesContainer from './components/MoviesContainer'
+import Footer from './components/Footer'
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
       <Header/>
       <SearchContainer/>
       <MoviesContainer/>
-      
+      <Footer/>
     </div>
   );
 }

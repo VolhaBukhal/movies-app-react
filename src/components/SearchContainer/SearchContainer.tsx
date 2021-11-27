@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './SearchContainer.module.css';
 import Input from './Input/Input'
-import SearchButton from './SearchButton/SearchButton'
+import Button from '../Button/Button'
 import Checkbox from './Checkbox/Checkbox'
 
 const SearchContainer = () => {
@@ -13,7 +13,7 @@ const SearchContainer = () => {
                     <Checkbox name="Title"/>
                     <Checkbox name="Genre"/>
                 </div>
-                <SearchButton handleClick={() => console.log('search btn clicked')}/>
+                <Button name="Search" handleClick={() => console.log('search btn clicked')}/>
             </div>
         </div>
     );

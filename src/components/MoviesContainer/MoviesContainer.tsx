@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {Movie} from 'types/types'
 import MovieItem from './MovieItem'
 import style from './MoviesContainer.module.css'
+import MoviesTopBar from './MoviesTopBar'
 
 interface MovieData {
     data: Movie[];
@@ -18,17 +19,18 @@ const MoviesContainer = () => {
           .then (data => {
             setMovies(data.data);
             setIsLoaded(true);
-          });
+          })
+          .catch( error => console.log(error) )
     });
-
 
     return (
         <div>
             {
                 isLoaded ? (
                     <>
+                    <MoviesTopBar/>
                     <div className={style.MovieContainer}>
-                        {movies.map(movie => <MovieItem key={movie.id} movie={movie}/>) }
+                        {movies.map((movie, index) => index !== 1 && <MovieItem key={movie.id} movie={movie}/>) }
                     </div>
                     </>
                 ) : (
