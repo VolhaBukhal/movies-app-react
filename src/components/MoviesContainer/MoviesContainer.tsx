@@ -1,32 +1,26 @@
 import React, {useState, useEffect} from 'react';
-import {Movie} from 'types/types'
+import {Movie, MovieData} from 'types/types'
 import MovieItem from './MovieItem'
 import style from './MoviesContainer.module.css'
 import MoviesTopBar from './MoviesTopBar'
+import {RootState} from 'store/index'
+import {useSelector, useDispatch} from 'react-redux'
+import {fetchMovies} from 'store/action'
 
-interface MovieData {
-    data: Movie[];
-}
 
 const MoviesContainer = () => {
-    const [movies, setMovies] = useState<Movie[]>([]);
-    const [isLoaded, setIsLoaded] = useState<boolean>(false);
-
+    const {movies, loading} = useSelector((state: RootState) => state.movies);
+    console.log('from MoviesContainer ', movies)
+    const dispatch = useDispatch();
+    
     useEffect( () => {
-        const url = 'http://reactjs-cdp.herokuapp.com/movies';
-        fetch(url)
-          .then( (data):Promise<MovieData> => data.json() )
-          .then (data => {
-            setMovies(data.data);
-            setIsLoaded(true);
-          })
-          .catch( error => console.log(error) )
-    });
+        dispatch(fetchMovies());
+    }, [dispatch]);
 
     return (
         <div>
             {
-                isLoaded ? (
+                !loading ? (
                     <>
                     <MoviesTopBar/>
                     <div className={style.MovieContainer}>
