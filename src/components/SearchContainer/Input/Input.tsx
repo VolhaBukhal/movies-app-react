@@ -4,12 +4,11 @@ import {useSelector, useDispatch} from 'react-redux'
 import {RootState} from 'store'
 
 interface MyProps {
+    value: string,
     handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 } 
 
-const Input: FC<MyProps> = ({handleChange}) => {
-
-    // const {searchWord} = useSelector((state: RootState) => state.movies);
+const Input: FC<MyProps> = ({value, handleChange}) => {
 
     return (
         <div>
@@ -19,6 +18,7 @@ const Input: FC<MyProps> = ({handleChange}) => {
                     type="text" 
                     className={style.Input} 
                     placeholder="What are you looking for?"
+                    value={value}
                     onChange={handleChange}
                 />
             </label>

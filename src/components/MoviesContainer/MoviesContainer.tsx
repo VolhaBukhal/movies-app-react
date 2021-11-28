@@ -8,9 +8,8 @@ import {fetchMovies} from 'store/action'
 
 
 const MoviesContainer = () => {
-    const {movies, loading, searchFilter, searchWord} = useSelector((state: RootState) => state.movies);
-    console.log("searchFilter", searchFilter);
-    console.log("searchWord: ", searchWord);
+    const {movies, loading, searchFilter, searchWord, movieFilter} = useSelector((state: RootState) => state.movies);
+    const dispatch = useDispatch();
 
     const filteredMovies = (searchWord.length === 0) ? [] : movies.filter( movie => {
         if(searchFilter === "Title") {
@@ -20,9 +19,16 @@ const MoviesContainer = () => {
         }
     });
 
+    if(movieFilter === "rating") {
+        console.log( 'is rating')
+        filteredMovies.sort((a, b) => b.vote_average - a.vote_average);
+    }
+    if(movieFilter === "release date") {
+        console.log( 'is release date')
+        filteredMovies.sort((a, b) => +b.release_date.split('-')[0] - +a.release_date.split('-')[0]);
+    }
+
     console.log("filtereMovies", filteredMovies);
-   
-    const dispatch = useDispatch();
     
     useEffect( () => {
         dispatch(fetchMovies());
@@ -35,7 +41,7 @@ const MoviesContainer = () => {
                     <>
                     <MoviesTopBar foundMovie={filteredMovies.length}/>
                         <div className={style.MovieContainer}>
-                            {filteredMovies.map((movie, index) => <MovieItem key={movie.id} movie={movie}/>) }
+                            {filteredMovies.map((movie, index) => <MovieItem key={movie.id} movie={movie}/> ) }
                         </div>
                     </>
                 ) : (

@@ -25,15 +25,15 @@ const SearchContainer = () => {
         setInputWord(event.target.value);
     }
 
-    const sandSearchWordToSore = () => {
-        console.log('send the word to store');
+    const sendSearchWordToSore = useCallback(() => {
         dispatch(setSearchWord(inputWord));
-    }
+        setInputWord('');
+    }, [dispatch, inputWord])
     
 
     return (
         <div>
-            <Input handleChange={handleSearchWord}/>
+            <Input handleChange={handleSearchWord} value={inputWord}/>
             <div className={style.SearchOptions}>
                 <div className={style.SearchBy}>search by
                     {
@@ -48,7 +48,7 @@ const SearchContainer = () => {
                     {/* <Checkbox name="Title"/>
                     <Checkbox name="Genre"/> */}
                 </div>
-                <Button name="Search" handleClick={sandSearchWordToSore}/>
+                <Button name="Search" handleClick={sendSearchWordToSore}/>
             </div>
         </div>
     );

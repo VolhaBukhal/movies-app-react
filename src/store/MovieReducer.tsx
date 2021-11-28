@@ -1,11 +1,12 @@
 import {Movie} from 'types/types'
-import {MovieAction, MovieActionType, SearchFilter} from './action'
+import {MovieAction, MovieActionType, SearchFilter, MovieFilter} from './action'
 
 type State = {
     movies: Movie[],
     loading: boolean,
     error: string,
     searchFilter: SearchFilter,
+    movieFilter: MovieFilter,
     searchWord: string
 }
 
@@ -14,6 +15,7 @@ const initialState: State = {
     loading: false,
     error: '',
     searchFilter: SearchFilter.Title,
+    movieFilter: MovieFilter.RATING,
     searchWord: ''
 }
 
@@ -37,6 +39,12 @@ export const MoiveReducer = (state: State = initialState, action: MovieAction): 
             return {
                 ...state,
                 searchFilter: action.payload
+            }
+        }
+        case MovieActionType.SET_MOVIE_FILTER: {
+            return {
+                ...state,
+                movieFilter: action.payload
             }
         }
         case MovieActionType.SET_SEARCH_WORD: {
