@@ -1,5 +1,4 @@
-import React, {useState, useEffect} from 'react';
-import {Movie, MovieData} from 'types/types'
+import React, {useEffect} from 'react';
 import MovieItem from './MovieItem'
 import style from './MoviesContainer.module.css'
 import MoviesTopBar from './MoviesTopBar'
@@ -9,8 +8,20 @@ import {fetchMovies} from 'store/action'
 
 
 const MoviesContainer = () => {
-    const {movies, loading} = useSelector((state: RootState) => state.movies);
-    console.log('from MoviesContainer ', movies)
+    const {movies, loading, searchFilter, searchWord} = useSelector((state: RootState) => state.movies);
+    console.log("searchFilter", searchFilter);
+    console.log("searchWord: ", searchWord);
+
+    const filteredMovies = (searchWord.length === 0) ? [] : movies.filter( movie => {
+        if(searchFilter === "Title") {
+            return movie.title.toLowerCase().includes(searchWord.toLowerCase());
+        } else {
+            return movie.genres.some(genre => genre.toLowerCase().includes(searchWord.toLowerCase()) );
+        }
+    });
+
+    console.log("filtereMovies", filteredMovies);
+   
     const dispatch = useDispatch();
     
     useEffect( () => {
@@ -22,10 +33,10 @@ const MoviesContainer = () => {
             {
                 !loading ? (
                     <>
-                    <MoviesTopBar/>
-                    <div className={style.MovieContainer}>
-                        {movies.map((movie, index) => index !== 1 && <MovieItem key={movie.id} movie={movie}/>) }
-                    </div>
+                    <MoviesTopBar foundMovie={filteredMovies.length}/>
+                        <div className={style.MovieContainer}>
+                            {filteredMovies.map((movie, index) => <MovieItem key={movie.id} movie={movie}/>) }
+                        </div>
                     </>
                 ) : (
                     <div> is loading...</div>
