@@ -1,7 +1,6 @@
 import React, {FC, useCallback} from 'react';
 import { MovieFilter, setMovieFilter } from 'store/action';
 import style from './MoviesTopBar.module.css'
-import Button from '../../Button/Button'
 import Checkbox from '../../SearchContainer/Checkbox/Checkbox'
 import {useSelector, useDispatch} from 'react-redux'
 import {RootState} from 'store'

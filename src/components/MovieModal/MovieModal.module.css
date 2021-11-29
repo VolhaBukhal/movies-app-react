@@ -30,7 +30,32 @@
     background-size: cover;
 }
 
+.ModalInfo:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: '';
+    background-color: rgba(68, 25, 25, 0.6);
+    z-index: 2;
+}
+
+.ModalInfo > 
+  p,
+  h3 {
+    z-index: 3;
+}
+
 .MovieDescr {
     flex-basis: 100px;
+}
 
+.ModalClose {
+    text-align: right;
+    z-index: 3;
+}
+
+.MovieBudget {
+    z-index: 3;
 }

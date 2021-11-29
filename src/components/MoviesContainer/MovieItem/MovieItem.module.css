@@ -47,7 +47,7 @@
     color: var(--secondary-color);
     background-color: var(--primery-color);
     border-radius: 100%;
-    z-index: 5;
+    z-index: 4;
 }
 
 .MovieInfo {
