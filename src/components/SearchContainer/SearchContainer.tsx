@@ -27,7 +27,7 @@ const SearchContainer = () => {
 
     const sendSearchWordToSore = useCallback(() => {
         dispatch(setSearchWord(inputWord));
-        setInputWord('');
+        // setInputWord('');
     }, [dispatch, inputWord])
     
 

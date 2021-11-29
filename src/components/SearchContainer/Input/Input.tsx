@@ -1,7 +1,7 @@
 import React, {FC} from 'react'
 import style from './Input.module.css'
 import {useSelector, useDispatch} from 'react-redux'
-import {RootState} from 'store'
+import SearchIcon from '@mui/icons-material/Search';
 
 interface MyProps {
     value: string,
@@ -11,7 +11,7 @@ interface MyProps {
 const Input: FC<MyProps> = ({value, handleChange}) => {
 
     return (
-        <div>
+        <div className={style.InputRow}>
             <label htmlFor="searchInput">
                 <input
                     id="searchInput" 
@@ -21,6 +21,9 @@ const Input: FC<MyProps> = ({value, handleChange}) => {
                     value={value}
                     onChange={handleChange}
                 />
+                <div className={style.searchIcon}>
+                    <SearchIcon/>
+                </div>
             </label>
            
         </div>
