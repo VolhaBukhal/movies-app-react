@@ -1,19 +1,33 @@
-import React from 'react';
-import { MovieFilter } from 'store/action';
+import React, {FC, useCallback} from 'react';
+import { MovieFilter, setMovieFilter } from 'store/action';
 import style from './MoviesTopBar.module.css'
-// import Button from '../../Button/Button'
 import Checkbox from '../../SearchContainer/Checkbox/Checkbox'
+import {useSelector, useDispatch} from 'react-redux'
+import {RootState} from 'store'
 
+interface MyProps {
+    foundMovie: number
+}
+const MoviesTopBar: FC<MyProps> = ({foundMovie}) => {
+    const {movieFilter} = useSelector((state: RootState) => state.movies);
+    const dispatch = useDispatch();
 
-const MoviesTopBar = () => {
+    const handleCheckbox = useCallback((filter: MovieFilter) => {
+        dispatch(setMovieFilter(filter))
+    }, [dispatch]);
+
     return (
         <div className={style.MovieResultsRow}>
-            <p>{7} movies found</p>
+            <p>{foundMovie} movies found</p>
             <div className={style.MovieSortBtn}>
                 Sort by 
                 {Object.values(MovieFilter).map(item => 
-                // <Button key={item} name={item} handleClick={() => console.log({item})}/>
-                <Checkbox key={item} name={item}/>
+                    // <Button key={item} name={item} handleClick={() => console.log({item})}/>
+                    <Checkbox 
+                        key={item} 
+                        name={item} 
+                        isChecked={item === movieFilter}
+                        handleCheckbox={() => handleCheckbox(item)}/>
                 )}
             </div>
         </div>

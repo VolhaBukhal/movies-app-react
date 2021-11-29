@@ -1,3 +1,7 @@
+.InputRow {
+    position: relative;
+}
+
 .Input {
     border: none;
     width: 100%;
@@ -18,3 +22,11 @@
     color: rgba(151, 146, 146, 0.6);
 }
 
+.searchIcon {
+    position: absolute;
+    top: 35px;
+    right: 5px;
+    width: 30px;
+    height: 30px;
+    color: var(--secondary-color);
+}   

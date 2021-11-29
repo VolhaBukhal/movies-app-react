@@ -1,37 +1,48 @@
-import React, {useState, useEffect} from 'react';
-import {Movie} from 'types/types'
+import React, {useEffect} from 'react';
 import MovieItem from './MovieItem'
 import style from './MoviesContainer.module.css'
 import MoviesTopBar from './MoviesTopBar'
+import {RootState} from 'store/index'
+import {useSelector, useDispatch} from 'react-redux'
+import {fetchMovies} from 'store/action'
 
-interface MovieData {
-    data: Movie[];
-}
 
 const MoviesContainer = () => {
-    const [movies, setMovies] = useState<Movie[]>([]);
-    const [isLoaded, setIsLoaded] = useState<boolean>(false);
+    const {movies, loading, searchFilter, searchWord, movieFilter} = useSelector((state: RootState) => state.movies);
+    const dispatch = useDispatch();
 
-    useEffect( () => {
-        const url = 'http://reactjs-cdp.herokuapp.com/movies';
-        fetch(url)
-          .then( (data):Promise<MovieData> => data.json() )
-          .then (data => {
-            setMovies(data.data);
-            setIsLoaded(true);
-          })
-          .catch( error => console.log(error) )
+    const filteredMovies = (searchWord.length === 0) ? [] : movies.filter( movie => {
+        if(searchFilter === "Title") {
+            return movie.title.toLowerCase().includes(searchWord.toLowerCase());
+        } else {
+            return movie.genres.some(genre => genre.toLowerCase().includes(searchWord.toLowerCase()) );
+        }
     });
+
+    if(movieFilter === "rating") {
+        console.log( 'is rating')
+        filteredMovies.sort((a, b) => b.vote_average - a.vote_average);
+    }
+    if(movieFilter === "release date") {
+        console.log( 'is release date')
+        filteredMovies.sort((a, b) => +b.release_date.split('-')[0] - +a.release_date.split('-')[0]);
+    }
+
+    console.log("filtereMovies", filteredMovies);
+    
+    useEffect( () => {
+        dispatch(fetchMovies());
+    }, [dispatch]);
 
     return (
         <div>
             {
-                isLoaded ? (
+                !loading ? (
                     <>
-                    <MoviesTopBar/>
-                    <div className={style.MovieContainer}>
-                        {movies.map((movie, index) => index !== 1 && <MovieItem key={movie.id} movie={movie}/>) }
-                    </div>
+                    <MoviesTopBar foundMovie={filteredMovies.length}/>
+                        <div className={style.MovieContainer}>
+                            {filteredMovies.map((movie, index) => <MovieItem key={movie.id} movie={movie}/> ) }
+                        </div>
                     </>
                 ) : (
                     <div> is loading...</div>

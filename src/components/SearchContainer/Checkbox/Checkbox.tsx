@@ -3,16 +3,18 @@ import style from './Checkbox.module.css'
 
 interface MyProps {
     name: string;
+    isChecked: boolean;
+    handleCheckbox: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
-const Checkbox:FC<MyProps> = ({name}) => {
+const Checkbox:FC<MyProps> = ({name, isChecked, handleCheckbox}) => {
     
-    const handleCheckbox = (event: React.ChangeEvent<HTMLInputElement>): void => {
-        console.log(event.target.checked)
-    }
+    // const handleCheckbox = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    //     console.log(event.target.checked)
+    // }
     return (
         <div>
             <label className={style.container}>
-                <input type="checkbox" onChange={handleCheckbox}></input>
+                <input type="checkbox" onChange={handleCheckbox} checked={isChecked}></input>
                 <span className={style.checkmark}>{name}</span>
             </label>
         </div>

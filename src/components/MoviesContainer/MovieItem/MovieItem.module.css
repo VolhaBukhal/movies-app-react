@@ -35,6 +35,21 @@
     transition: 0.4s ease all;
 }
 
+.MovieRate {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    color: var(--secondary-color);
+    background-color: var(--primery-color);
+    border-radius: 100%;
+    z-index: 4;
+}
+
 .MovieInfo {
     display: flex;
     justify-content: space-between;

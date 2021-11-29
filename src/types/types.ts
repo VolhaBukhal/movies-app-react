@@ -8,3 +8,7 @@ export interface Movie {
     budget: number;
     genres: string[];
 }
+
+export interface MovieData {
+    data: Movie[];
+}

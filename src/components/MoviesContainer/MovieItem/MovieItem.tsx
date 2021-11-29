@@ -18,6 +18,7 @@ const MovieItem:FC<MyProps> = ({movie}) => {
         <div className={style.MovieItem} onClick={handleModal}>
             <div className={style.MovieImg}>
                 <img src={movie.poster_path} alt={movie.title}></img>
+                <div className={style.MovieRate}>{movie.vote_average}</div>
             </div>
             <div className={style.MovieInfo}>
                 <div className={style.MovieTitle}>{movie.title}</div>
