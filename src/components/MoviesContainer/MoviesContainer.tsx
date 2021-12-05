@@ -34,13 +34,12 @@ const MoviesContainer = () => {
 
     console.log("filtereMovies", filteredMovies);
     
-    // useEffect( () => {
-    //     dispatch(fetchMovies(moviesLimit));
-    // }, [dispatch, moviesLimit]);
+    useEffect( () => {
+        dispatch(fetchMovies(moviesLimit));
+    }, [dispatch, moviesLimit]);
 
     const setLimit = useCallback(() => {
         dispatch(setMoviesLimit(moviesLimit+10));
-        dispatch(fetchMovies(moviesLimit));
     }, [dispatch, moviesLimit])
 
     return (

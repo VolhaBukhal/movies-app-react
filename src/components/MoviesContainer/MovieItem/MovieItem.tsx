@@ -2,6 +2,8 @@ import React, {FC, useState, useCallback} from 'react';
 import {Movie} from 'types/types'
 import style from './MovieItem.module.css'
 import MovieModal from '../../MovieModal/MovieModal'
+import fallback from 'assets/img/defaultImg.jpg'
+// import fallback from 'assets/img/imageDefault1.png'
 
 interface MyProps {
     movie: Movie;
@@ -9,15 +11,23 @@ interface MyProps {
 const MovieItem:FC<MyProps> = ({movie}) => {
     const [isHidden, setIsHidden] = useState<boolean>(true);
 
+
     const handleModal = useCallback( () => {
         setIsHidden(!isHidden);
     },[isHidden, setIsHidden])
 
+    const handlerImageError = ( event: React.SyntheticEvent<HTMLImageElement, Event>) => {
+        event.currentTarget.src = fallback;
+      };
 
     return (
         <div className={style.MovieItem} onClick={handleModal}>
             <div className={style.MovieImg}>
-                <img src={movie.poster_path} alt={movie.title}></img>
+                <img 
+                    src={movie.poster_path} 
+                    alt={movie.title}
+                    onError={handlerImageError}
+                ></img>
                 <div className={style.MovieRate}>{movie.vote_average}</div>
             </div>
             <div className={style.MovieInfo}>
@@ -34,3 +44,6 @@ const MovieItem:FC<MyProps> = ({movie}) => {
 };
 
 export default MovieItem;
+
+
+{/* <img src="image.png" onError="this.onerror=null; this.src='/images/noimage.gif';" /> */}
