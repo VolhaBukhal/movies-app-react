@@ -29,7 +29,7 @@ const SearchContainer = () => {
 
     const sendSearchWordToStore = useCallback(() => {
         dispatch(setSearchWord(inputWord));
-         dispatch(fetchMovies(moviesLimit));
+        dispatch(fetchMovies(moviesLimit));
     }, [dispatch, inputWord, moviesLimit])
 
     const handleInputIcon = useCallback(() => {
