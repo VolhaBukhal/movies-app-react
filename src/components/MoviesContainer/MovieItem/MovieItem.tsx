@@ -10,6 +10,7 @@ interface MyProps {
 }
 const MovieItem:FC<MyProps> = ({movie}) => {
     const [isHidden, setIsHidden] = useState<boolean>(true);
+    const [isImgError, setIsImgError] = useState<boolean>(false);
 
 
     const handleModal = useCallback( () => {
@@ -17,6 +18,7 @@ const MovieItem:FC<MyProps> = ({movie}) => {
     },[isHidden, setIsHidden])
 
     const handlerImageError = ( event: React.SyntheticEvent<HTMLImageElement, Event>) => {
+        setIsImgError(true);
         event.currentTarget.src = fallback;
       };
 
@@ -37,7 +39,7 @@ const MovieItem:FC<MyProps> = ({movie}) => {
             <div className={style.MovieGenre}>{
                 movie.genres.reduce( (prev, next) => `${prev} & ${next}`)
             }</div>
-            <MovieModal movie={movie} isHidden={isHidden} handleModal={handleModal}/>
+            <MovieModal isImgError={isImgError} movie={movie} isHidden={isHidden} handleModal={handleModal}/>
             
         </div>
     );
@@ -45,5 +47,3 @@ const MovieItem:FC<MyProps> = ({movie}) => {
 
 export default MovieItem;
 
-
-{/* <img src="image.png" onError="this.onerror=null; this.src='/images/noimage.gif';" /> */}

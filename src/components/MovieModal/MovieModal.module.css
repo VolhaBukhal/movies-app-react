@@ -22,13 +22,16 @@
     justify-content: start;
     gap: 20px;
     color: #ffffff;
-
     text-align: justify;
     border: 10px solid var(--secondary-color);
     background-position: top center;
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+/* .ModalImgError {
+    background: url('../../assets/img/defaultImg.jpg');
+} */
 
 .ModalInfo:after {
     position: absolute;
