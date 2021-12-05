@@ -1,15 +1,18 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useCallback} from 'react';
 import MovieItem from './MovieItem'
 import style from './MoviesContainer.module.css'
 import MoviesTopBar from './MoviesTopBar'
 import {RootState} from 'store/index'
 import {useSelector, useDispatch} from 'react-redux'
-import {fetchMovies} from 'store/action'
+import {fetchMovies, setMoviesLimit} from 'store/action'
+import Button from 'components/Button'
 
 
 const MoviesContainer = () => {
-    const {movies, loading, searchFilter, searchWord, movieFilter} = useSelector((state: RootState) => state.movies);
+    const {movies, loading, searchFilter, searchWord, movieFilter, moviesLimit} = useSelector((state: RootState) => state.movies);
     const dispatch = useDispatch();
+
+    console.log('all mivies: ', movies);
 
     const filteredMovies = (searchWord.length === 0) ? [] : movies.filter( movie => {
         if(searchFilter === "Title") {
@@ -31,8 +34,14 @@ const MoviesContainer = () => {
     console.log("filtereMovies", filteredMovies);
     
     useEffect( () => {
-        dispatch(fetchMovies());
-    }, [dispatch]);
+        dispatch(fetchMovies(moviesLimit));
+    }, [dispatch, moviesLimit]);
+
+    const setLimit = useCallback(() => {
+        dispatch(setMoviesLimit(moviesLimit+10))
+    }, [dispatch, moviesLimit])
+
+
 
     return (
         <div>
@@ -43,6 +52,7 @@ const MoviesContainer = () => {
                         <div className={style.MovieContainer}>
                             {filteredMovies.map((movie, index) => <MovieItem key={movie.id} movie={movie}/> ) }
                         </div>
+                        { (filteredMovies.length > 0) && <Button name="Show more" handleClick={setLimit} /> }
                     </>
                 ) : (
                     <div> is loading...</div>

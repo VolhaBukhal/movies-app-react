@@ -7,7 +7,8 @@ type State = {
     error: string,
     searchFilter: SearchFilter,
     movieFilter: MovieFilter,
-    searchWord: string
+    searchWord: string,
+    moviesLimit: number,
 }
 
 const initialState: State = {
@@ -16,7 +17,8 @@ const initialState: State = {
     error: '',
     searchFilter: SearchFilter.Title,
     movieFilter: MovieFilter.RATING,
-    searchWord: ''
+    searchWord: '',
+    moviesLimit: 10,
 }
 
 export const MoiveReducer = (state: State = initialState, action: MovieAction): State => {
@@ -51,6 +53,12 @@ export const MoiveReducer = (state: State = initialState, action: MovieAction): 
             return {
                 ...state,
                 searchWord: action.payload
+            }
+        }
+        case MovieActionType.SET_MOVIES_LIMIT: {
+            return {
+                ...state,
+                moviesLimit: action.payload
             }
         }
     }
