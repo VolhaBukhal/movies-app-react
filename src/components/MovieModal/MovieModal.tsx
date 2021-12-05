@@ -3,6 +3,7 @@ import {Movie} from 'types/types'
 import style from './MovieModal.module.css'
 import className from 'classnames/bind'
 
+
 const cx = className.bind(style);
 
 interface ModalProps {
@@ -12,14 +13,16 @@ interface ModalProps {
 }
 
 const MovieModal:FC<ModalProps> = ({movie, isHidden, handleModal}) => {
+    
     return (
         <div className={cx({
             MovieModal: true,
             hidden: isHidden
-            })}>
-            <div 
-              className={style.ModalInfo}
-              style={{backgroundImage: `url("${movie.poster_path}")`}}>
+            })}
+            >
+            <div className={style.ModalInfo}
+              style={{backgroundImage: `url("${movie.poster_path}")`}}
+            >
                 <div className={style.ModalClose} onClick={handleModal}>X</div>
                 <h3 className={style.MovieTitle}>{movie.title}</h3>
                 <p>{movie.genres.join(', ')}</p>

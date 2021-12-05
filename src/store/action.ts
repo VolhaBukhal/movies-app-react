@@ -40,7 +40,7 @@ export type MovieAction = FetchMovieAction
 export const fetchMovies = () => {
     return (dispatch: Dispatch<MovieAction>) => {
         dispatch({type: MovieActionType.FETCH_MOVIES})
-        fetch(`http://reactjs-cdp.herokuapp.com/movies`)
+        fetch(`http://reactjs-cdp.herokuapp.com/movies?limit=50`)
           .then((response):Promise<MovieData> => response.json())
           .then( movies => {
             dispatch({type: MovieActionType.FETCH_MOVIES_SUCCESS, payload: movies.data})

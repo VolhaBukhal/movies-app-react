@@ -2,6 +2,8 @@ import React, {FC, useState, useCallback} from 'react';
 import {Movie} from 'types/types'
 import style from './MovieItem.module.css'
 import MovieModal from '../../MovieModal/MovieModal'
+import {Link} from 'react-router-dom'
+import {useNavigate, useParams} from 'react-router-dom'
 
 interface MyProps {
     movie: Movie;
@@ -27,8 +29,13 @@ const MovieItem:FC<MyProps> = ({movie}) => {
             <div className={style.MovieGenre}>{
                 movie.genres.reduce( (prev, next) => `${prev} & ${next}`)
             }</div>
+            <Link 
+                to={{
+                    pathname: `/movies/${movie.id}`,
+                }}
+               >
+            </Link>
             <MovieModal movie={movie} isHidden={isHidden} handleModal={handleModal}/>
-            
         </div>
     );
 };

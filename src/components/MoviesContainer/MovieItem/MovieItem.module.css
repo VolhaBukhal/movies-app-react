@@ -5,16 +5,15 @@
     width: 33%;
     height: 530px;
     margin: 0 -15px;
-    /* background-color: var(--primery-color); */
     background-color: #000000;
     border-radius: 10px;
     cursor: pointer;
 }
 
 .MovieItem:hover .MovieImg img {
-    width: 105%;
-    height: 105%;
-
+    /* width: 105%;
+    height: 105%; */
+    transform: scale(1.07) skew(-2deg);
 }
 
 .MovieImg {

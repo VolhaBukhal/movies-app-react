@@ -20,11 +20,9 @@ const MoviesContainer = () => {
     });
 
     if(movieFilter === "rating") {
-        console.log( 'is rating')
         filteredMovies.sort((a, b) => b.vote_average - a.vote_average);
     }
     if(movieFilter === "release date") {
-        console.log( 'is release date')
         filteredMovies.sort((a, b) => +b.release_date.split('-')[0] - +a.release_date.split('-')[0]);
     }
 
