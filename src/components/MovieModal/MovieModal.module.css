@@ -22,7 +22,7 @@
     justify-content: start;
     gap: 20px;
     color: #ffffff;
-    /* text-align: left; */
+
     text-align: justify;
     border: 10px solid var(--secondary-color);
     background-position: top center;
