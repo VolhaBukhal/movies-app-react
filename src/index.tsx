@@ -16,7 +16,7 @@ ReactDOM.render(
       <Provider store={store}>
         <Routes>
           <Route path="/movies" element={ <App /> }>
-            <Route path=':movieId' element={ <MovieDetailsPage/> }/>
+            <Route path=':movieId'/>
           </Route>
           <Route path='*' element={ <Page404/> }/>
         </Routes>

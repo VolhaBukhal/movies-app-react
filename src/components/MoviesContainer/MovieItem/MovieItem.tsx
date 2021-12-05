@@ -21,7 +21,6 @@ const MovieItem:FC<MyProps> = ({movie}) => {
         if (!isHidden) {
             navigate('');
         }
-        
     },[isHidden, navigate, setIsHidden])
 
     const handlerImageError = ( event: React.SyntheticEvent<HTMLImageElement, Event>) => {
