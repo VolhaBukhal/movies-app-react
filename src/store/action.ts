@@ -18,6 +18,7 @@ export enum MovieActionType {
     FILTER_SEARCH_MOVIES = "FILTER_SEARCH_MOVIES",
     SET_SEARCH_WORD = "SET_SEARCH_WORD",
     SET_MOVIE_FILTER = "SET_MOVIE_FILTER",
+    SET_MOVIES_LIMIT = "SET_MOVIES_LIMIT",
 }
 
 export type ActionPayload <TypeAction, TypePayload> = {
@@ -30,17 +31,19 @@ export type FetchSuccessMovieAction = ActionPayload<MovieActionType.FETCH_MOVIES
 export type SetFilterSearchMovieAction = ActionPayload<MovieActionType.FILTER_SEARCH_MOVIES, SearchFilter>;
 export type SetSearchWordMovieAction = ActionPayload<MovieActionType.SET_SEARCH_WORD, string>;
 export type SetFilterMovieAction = ActionPayload<MovieActionType.SET_MOVIE_FILTER, MovieFilter>;
+export type SetMoviesLimitAction = ActionPayload<MovieActionType.SET_MOVIES_LIMIT, number>;
 
 export type MovieAction = FetchMovieAction
             | FetchSuccessMovieAction
             | SetFilterSearchMovieAction
             | SetSearchWordMovieAction
-            | SetFilterMovieAction;
+            | SetFilterMovieAction
+            | SetMoviesLimitAction;
 
-export const fetchMovies = () => {
+export const fetchMovies = (limit: number) => {
     return (dispatch: Dispatch<MovieAction>) => {
         dispatch({type: MovieActionType.FETCH_MOVIES})
-        fetch(`http://reactjs-cdp.herokuapp.com/movies`)
+        fetch(`http://reactjs-cdp.herokuapp.com/movies?limit=${limit}`)
           .then((response):Promise<MovieData> => response.json())
           .then( movies => {
             dispatch({type: MovieActionType.FETCH_MOVIES_SUCCESS, payload: movies.data})
@@ -63,4 +66,9 @@ export const setSearchWord = (word: string): SetSearchWordMovieAction  => ({
 export const setMovieFilter = (filter: MovieFilter): SetFilterMovieAction  => ({
     type: MovieActionType.SET_MOVIE_FILTER,
     payload: filter
+})
+
+export const setMoviesLimit = (limit: number): SetMoviesLimitAction  => ({
+    type: MovieActionType.SET_MOVIES_LIMIT,
+    payload: limit
 })

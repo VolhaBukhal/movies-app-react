@@ -1,0 +1,9 @@
+.Loader {
+    margin: 15px auto 0 auto;
+    text-align: center;
+}
+
+.LoaderText {
+    color: var(--secondary-color);
+    font-size: 1.5rem;
+}

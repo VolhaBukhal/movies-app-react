@@ -2,13 +2,16 @@ import React, {FC} from 'react'
 import style from './Input.module.css'
 import {useSelector, useDispatch} from 'react-redux'
 import SearchIcon from '@mui/icons-material/Search';
+import ClearIcon from '@mui/icons-material/Clear';
 
 interface MyProps {
     value: string,
     handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    isActive: boolean;
+    handleInputIcon: () => void;
 } 
 
-const Input: FC<MyProps> = ({value, handleChange}) => {
+const Input: FC<MyProps> = ({value, handleChange, handleInputIcon, isActive}) => {
 
     return (
         <div className={style.InputRow}>
@@ -21,8 +24,8 @@ const Input: FC<MyProps> = ({value, handleChange}) => {
                     value={value}
                     onChange={handleChange}
                 />
-                <div className={style.searchIcon}>
-                    <SearchIcon/>
+                <div className={style.searchIcon} onClick={handleInputIcon}>
+                    {isActive ? <ClearIcon/> : <SearchIcon/>}
                 </div>
             </label>
            
