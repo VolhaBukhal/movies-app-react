@@ -39,7 +39,8 @@ const MoviesContainer = () => {
     // }, [dispatch, moviesLimit]);
 
     const setLimit = useCallback(() => {
-        dispatch(setMoviesLimit(moviesLimit+10))
+        dispatch(setMoviesLimit(moviesLimit+10));
+        dispatch(fetchMovies(moviesLimit));
     }, [dispatch, moviesLimit])
 
     return (
