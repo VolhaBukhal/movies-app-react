@@ -11,6 +11,7 @@ import {RootState} from 'store'
 const SearchContainer = () => {
     const {searchFilter} = useSelector( (state: RootState) => state.movies);
     const [inputWord, setInputWord] = useState('');
+    const [isActive, setIsActive] = useState(false);
 
     const dispatch = useDispatch();
     console.log('searchFilter ', searchFilter);
@@ -22,18 +23,31 @@ const SearchContainer = () => {
 
     const handleSearchWord = (event: React.ChangeEvent<HTMLInputElement> ) => {
         console.log('from handleSearchWord ', event.target.value);
+        setIsActive(true);
         setInputWord(event.target.value);
     }
 
-    const sendSearchWordToSore = useCallback(() => {
+    const sendSearchWordToStore = useCallback(() => {
         dispatch(setSearchWord(inputWord));
-        // setInputWord('');
     }, [dispatch, inputWord])
-    
+
+    const handleInputIcon = useCallback(() => {
+        if(isActive) {
+            setInputWord('');
+            setIsActive(false);
+        } else {
+            return;
+        }
+    }, [setInputWord, setIsActive, isActive])
 
     return (
         <div>
-            <Input handleChange={handleSearchWord} value={inputWord}/>
+            <Input 
+                isActive={isActive}
+                value={inputWord}
+                handleChange={handleSearchWord} 
+                handleInputIcon={handleInputIcon}
+                />
             <div className={style.SearchOptions}>
                 <div className={style.SearchBy}>search by
                     {
@@ -45,10 +59,8 @@ const SearchContainer = () => {
                                 handleCheckbox={() => handleCheckbox(filterName)}
                             />)
                     }
-                    {/* <Checkbox name="Title"/>
-                    <Checkbox name="Genre"/> */}
                 </div>
-                <Button name="Search" handleClick={sendSearchWordToSore}/>
+                <Button name="Search" handleClick={sendSearchWordToStore}/>
             </div>
         </div>
     );

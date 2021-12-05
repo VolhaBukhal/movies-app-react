@@ -29,4 +29,11 @@
     width: 30px;
     height: 30px;
     color: var(--secondary-color);
+    transition: 0.4s; 
 }   
+
+.searchIcon:hover {
+    cursor: pointer;
+    color: var(--primery-color);
+}
+
