@@ -6,6 +6,7 @@ import {RootState} from 'store/index'
 import {useSelector, useDispatch} from 'react-redux'
 import {fetchMovies, setMoviesLimit} from 'store/action'
 import Button from 'components/Button'
+import Loader from 'components/Loader'
 
 
 const MoviesContainer = () => {
@@ -33,15 +34,13 @@ const MoviesContainer = () => {
 
     console.log("filtereMovies", filteredMovies);
     
-    useEffect( () => {
-        dispatch(fetchMovies(moviesLimit));
-    }, [dispatch, moviesLimit]);
+    // useEffect( () => {
+    //     dispatch(fetchMovies(moviesLimit));
+    // }, [dispatch, moviesLimit]);
 
     const setLimit = useCallback(() => {
         dispatch(setMoviesLimit(moviesLimit+10))
     }, [dispatch, moviesLimit])
-
-
 
     return (
         <div>
@@ -55,7 +54,7 @@ const MoviesContainer = () => {
                         { (filteredMovies.length > 0) && <Button name="Show more" handleClick={setLimit} /> }
                     </>
                 ) : (
-                    <div> is loading...</div>
+                    <Loader/>
                 )
             }
         </div>

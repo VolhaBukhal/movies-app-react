@@ -3,13 +3,13 @@ import style from './SearchContainer.module.css';
 import Input from './Input/Input'
 import Button from '../Button/Button'
 import Checkbox from './Checkbox/Checkbox'
-import {SearchFilter, setSearchFilterMovie, setSearchWord} from 'store/action'
+import {SearchFilter, setSearchFilterMovie, setSearchWord, fetchMovies} from 'store/action'
 import { useSelector, useDispatch } from 'react-redux'
 import {RootState} from 'store'
 
 
 const SearchContainer = () => {
-    const {searchFilter} = useSelector( (state: RootState) => state.movies);
+    const {searchFilter, moviesLimit} = useSelector( (state: RootState) => state.movies);
     const [inputWord, setInputWord] = useState('');
     const [isActive, setIsActive] = useState(false);
 
@@ -29,7 +29,8 @@ const SearchContainer = () => {
 
     const sendSearchWordToStore = useCallback(() => {
         dispatch(setSearchWord(inputWord));
-    }, [dispatch, inputWord])
+         dispatch(fetchMovies(moviesLimit));
+    }, [dispatch, inputWord, moviesLimit])
 
     const handleInputIcon = useCallback(() => {
         if(isActive) {
