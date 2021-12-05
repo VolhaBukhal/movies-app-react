@@ -1,0 +1,19 @@
+.PageWrapper {
+    width: 100%;
+    margin: 0 auto;
+}
+.Page {
+    font-size: 2rem;
+    color: var(--secondary-color);
+}
+
+.MainPageLink {
+    display: block;
+    margin-top: 30px;
+    color: var(--secondary-color);
+    transform: 0.4s;
+}
+
+.MainPageLink:hover {
+    color: var(--primery-color);
+}
