@@ -1,15 +1,17 @@
 .PageWrapper {
-    width: 100%;
-    margin: 0 auto;
+    width: 80%;
+    margin: 50px auto;
+    text-align: center;
 }
 .Page {
-    font-size: 2rem;
-    color: var(--secondary-color);
+    font-size: 2.5rem;
+    color: gray;
 }
 
 .MainPageLink {
     display: block;
     margin-top: 30px;
+    font-size: 1.5rem;
     color: var(--secondary-color);
     transform: 0.4s;
 }

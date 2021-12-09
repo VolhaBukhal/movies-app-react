@@ -7,7 +7,6 @@ import {store} from 'store'
 import {BrowserRouter as Router,
         Routes,
         Route } from 'react-router-dom'
-import MovieDetailsPage from 'components/MovieDetailsPage'
 import Page404 from 'components/Page404'
 
 ReactDOM.render(
@@ -15,6 +14,7 @@ ReactDOM.render(
     <Router>
       <Provider store={store}>
         <Routes>
+          <Route path="/" element={ <App/>}/>
           <Route path="/movies" element={ <App /> }>
             <Route path=':movieId'/>
           </Route>
