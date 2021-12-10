@@ -73,4 +73,14 @@
     padding: 0 4px;
     color: var(--secondary-color);
     text-align: left;
+    flex-grow: 1;
+}
+
+.MovieLink {
+    color: var(--secondary-color);
+    transition: 0.4s;
+}
+
+.MovieLink:hover {
+    color: var(--primery-color);
 }

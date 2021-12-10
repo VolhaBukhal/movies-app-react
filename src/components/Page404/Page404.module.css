@@ -1,0 +1,21 @@
+.PageWrapper {
+    width: 80%;
+    margin: 50px auto;
+    text-align: center;
+}
+.Page {
+    font-size: 2.5rem;
+    color: gray;
+}
+
+.MainPageLink {
+    display: block;
+    margin-top: 30px;
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    transform: 0.4s;
+}
+
+.MainPageLink:hover {
+    color: var(--primery-color);
+}
