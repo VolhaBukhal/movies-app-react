@@ -1,4 +1,4 @@
-import React, {useEffect, useCallback} from 'react';
+import React, {useEffect, useCallback, useState} from 'react';
 import MovieItem from './MovieItem'
 import style from './MoviesContainer.module.css'
 import MoviesTopBar from './MoviesTopBar'
@@ -45,7 +45,7 @@ const MoviesContainer = () => {
                         <div className={style.MovieContainer}>
                             {filteredMovies.map((movie, index) => <MovieItem key={movie.id} movie={movie}/> ) }
                         </div>
-                        { (filteredMovies.length > 0) && <Button name="Show more" handleClick={setLimit} /> }
+                        { (filteredMovies.length > 0) && <Button name="Search more" handleClick={setLimit} /> }
                     </>
                 ) : (
                     <Loader/>

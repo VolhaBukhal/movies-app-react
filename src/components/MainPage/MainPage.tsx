@@ -13,7 +13,6 @@ const MainPage = () => {
         <MoviesContainer/>
         <Footer/>
         <Outlet/>
-
     </div>
   )
 }
