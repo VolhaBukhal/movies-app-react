@@ -8,9 +8,9 @@
     padding: 8px 10px;
     box-sizing: border-box;
     margin-top: 20px;
-    line-height: 30px;
+    line-height: 2rem;
     color: #979292;
-    font-size: 20px;
+    font-size: 1.5rem;
     background-color: black;
     border-bottom: 2px solid var(--primery-color);
 }
@@ -18,8 +18,12 @@
 .Input:focus {
     outline: none;
 }
+.Input:active {
+    background-color: black;
+}
 .Input::placeholder {
     color: rgba(151, 146, 146, 0.6);
+    font-size: 1.5rem;
 }
 
 .searchIcon {
@@ -37,3 +41,15 @@
     color: var(--primery-color);
 }
 
+
+@media (max-width: 768px) {
+    .Input {
+        line-height: 2.5rem;
+    }
+}
+  
+@media (max-width: 520px) {
+    .Input {
+        line-height: 3rem;
+    }
+}

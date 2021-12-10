@@ -14,3 +14,14 @@
     align-items: center;
     text-transform: uppercase;
 }
+
+@media (max-width: 768px) {
+    .SearchBy {
+        width: 40%;
+    }
+}
+@media (max-width: 520px) {
+    .SearchBy {
+        width: 55%;
+    }
+}

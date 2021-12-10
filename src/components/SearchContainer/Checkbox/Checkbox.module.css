@@ -14,6 +14,7 @@
 .checkmark {
     text-transform: uppercase;
     padding: 4px 8px;
+    font-size: 1rem;
     background-color: #3D3E3E;
     color: var(--secondary-color);
     border-radius: 3px;
@@ -31,3 +32,13 @@
     background-color: var(--primery-color);
 }
 
+@media (max-width: 768px) {
+    .checkmark {
+        font-size: 1.1rem;
+    }
+}
+@media (max-width: 520px) {
+    .checkmark {
+        font-size: 1.2rem;
+    }
+}

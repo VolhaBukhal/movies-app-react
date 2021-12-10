@@ -27,3 +27,14 @@ code {
   --primery-color: #f75163; 
   --secondary-color: #DCDBDB;
 }
+
+@media (max-width: 768px) {
+  html {
+    font-size: 18px;
+  }
+}
+@media (max-width: 520px) {
+  html {
+    font-size: 30px;
+  }
+}

@@ -2,18 +2,20 @@
     position: fixed;
     top: 0;
     left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.6);
     z-index: 5;
+    transition: 0.4s all;
 }
 .hidden {
-    display: none;
+    top: -100%;
 }
 .ModalInfo {
     position: absolute;
-    top: 10%;
-    left: calc(50% - 350px);
     width: 700px;
     height: 500px;
     display: flex;
@@ -28,10 +30,6 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
-
-/* .ModalImgError {
-    background: url('../../assets/img/defaultImg.jpg');
-} */
 
 .ModalInfo:after {
     position: absolute;
@@ -61,4 +59,11 @@
 
 .MovieBudget {
     z-index: 3;
+}
+
+@media (max-width: 520px) {
+    .ModalInfo{
+        width: 90%;
+        height: 50%;
+    }
 }

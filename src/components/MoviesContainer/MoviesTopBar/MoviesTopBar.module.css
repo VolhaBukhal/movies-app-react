@@ -4,6 +4,7 @@
     display: flex;
     justify-content: space-between;
     background-color: var(--secondary-color);
+    align-items: center;
 }
 
 .MovieSortBtn {
@@ -11,4 +12,25 @@
     width: 40%;
     justify-content: space-between;
     align-items: center;
+}
+
+.MovieFound {
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-align: left;
+}
+
+@media (max-width: 768px) {
+    .MovieFound {
+        line-height: 1.1rem;
+    }
+}
+
+@media (max-width: 520px) {
+    .MovieSortBtn {
+        width: 65%;
+    }
+    .MovieResultsRow {
+        margin-top: 30px;
+    }
 }

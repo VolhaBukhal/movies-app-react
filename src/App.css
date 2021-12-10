@@ -3,19 +3,30 @@
   margin: 0 auto;
   width: 1000px;
   height: auto;
-  padding: 40px 80px;
+  padding: 40px 4rem;
   background: url('./assets/img/bg1.jpg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
+ @media (max-width: 768px) {
+  .App {
+    padding: 40px 3rem;
+  }
+}
 
+@media (max-width: 520px) {
+  .App {
+    padding: 2rem 2rem;
+  }
+}
 
-
-
-
-
+@media (max-width: 320px) {
+  .App {
+    padding: 1rem 1rem;
+  }
+} 
 
 
 
@@ -26,10 +37,6 @@
   }
 }
 
-
-.App-link {
-  color: #61dafb;
-}
 
 @keyframes App-logo-spin {
   from {
