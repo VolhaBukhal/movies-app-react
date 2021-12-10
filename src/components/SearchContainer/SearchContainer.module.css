@@ -1,0 +1,27 @@
+.SearchOptions {
+    margin-top: 20px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.SearchBy {
+    width: 30%;
+    color: var(--secondary-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+    .SearchBy {
+        width: 40%;
+    }
+}
+@media (max-width: 520px) {
+    .SearchBy {
+        width: 55%;
+    }
+}

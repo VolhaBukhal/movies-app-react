@@ -1,0 +1,21 @@
+.searchBtn {
+    padding: 4px 20px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: var(--secondary-color);
+    background-color: var(--primery-color);
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: 0.4s ease all;
+}
+.searchBtn:hover {
+    transform: scale(1.02);
+    opacity: .8;
+}
+
+@media (max-width: 768px) {
+    .searchBtn {
+        font-size: 1.3rem;
+    }
+}

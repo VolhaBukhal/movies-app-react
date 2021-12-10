@@ -1,0 +1,125 @@
+.MovieItem {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 33%;
+    height: 530px;
+    margin: 0 -15px;
+    background-color: #000000;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+
+
+.MovieItem:hover .MovieImg img {
+    width: 105%;
+    height: 105%;
+    transform: scale(1.05) skew(-2deg);
+}
+
+.MovieImg {
+    position: relative;
+    width: 100%;
+    height: 75%;
+    overflow: hidden;
+}
+
+.MovieImg img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+    transition: 0.4s ease all;
+}
+
+.MovieRate {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+    color: var(--secondary-color);
+    background-color: var(--primery-color);
+    border-radius: 100%;
+    z-index: 4;
+}
+
+.MovieInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    padding: 0 4px;
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+}
+
+.MovieTitle {
+    text-align: left;
+    font-size: 1.1rem;
+}
+
+.MovieYear {
+    padding: 2px 4px;
+    border: 1px solid var(--secondary-color);
+    text-align: right;
+}
+
+.MovieGenre{
+    padding: 0 4px;
+    color: var(--secondary-color);
+    text-align: left;
+    flex-grow: 1;
+    font-size: 1rem;
+}
+
+.MovieLink {
+    color: var(--secondary-color);
+    transition: 0.4s;
+}
+
+.MovieLink:hover {
+    color: var(--primery-color);
+}
+
+@media (max-width: 768px) {
+    .MovieItem {
+        width: 45%;
+        height: 600px;
+    }
+    .MovieTitle {
+        font-size: 1.7rem;
+    }
+    .MovieRate {
+        width: 55px;
+        height: 55px;
+    }
+
+}
+
+@media (max-width: 520px) {
+    .MovieItem {
+        width: 90%;
+        height: 800px;
+    }
+}
+
+@media (max-width: 320px) {
+    .MovieItem {
+        width: 100%;
+        height: 800px;
+    }
+    .MovieRate {
+        width: 60px;
+        height: 60px;
+        font-size: 1.3rem;
+    }
+}
