@@ -21,13 +21,16 @@ const MoviesTopBar: FC<MyProps> = ({foundMovie}) => {
             <p className={style.MovieFound}>{foundMovie} movies found</p>
             <div className={style.MovieSortBtn}>
                 Sort by 
-                {Object.values(MovieFilter).map(item => 
-                    <Checkbox 
-                        key={item} 
-                        name={item} 
-                        isChecked={item === movieFilter}
-                        handleCheckbox={() => handleCheckbox(item)}/>
-                )}
+                <div className={style.MovieSortBtnCheckboxes}>
+                    {Object.values(MovieFilter).map(item => 
+                        <Checkbox 
+                            key={item} 
+                            name={item} 
+                            isChecked={item === movieFilter}
+                            handleCheckbox={() => handleCheckbox(item)}/>
+                    )}
+                </div>
+                
             </div>
         </div>
     );

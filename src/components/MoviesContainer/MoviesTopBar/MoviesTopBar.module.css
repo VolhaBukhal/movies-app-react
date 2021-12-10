@@ -14,10 +14,25 @@
     align-items: center;
 }
 
+.MovieSortBtnCheckboxes {
+    display: flex;
+    gap: 20px;
+}
+
 .MovieFound {
     font-weight: 700;
     font-size: 1.1rem;
     text-align: left;
+}
+
+
+@media (max-width: 850px) {
+    .MovieSortBtn {
+        width: 55%;
+    }
+    .MovieResultsRow {
+        margin-top: 30px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -27,10 +42,19 @@
 }
 
 @media (max-width: 520px) {
-    .MovieSortBtn {
-        width: 65%;
-    }
     .MovieResultsRow {
-        margin-top: 30px;
+        flex-direction: column;
+        gap: 15px;
+    }
+    .MovieSortBtn {
+        flex-direction: column;
+        gap: 8px;
+        width: 100%;
+    }
+
+    .MovieSortBtnCheckboxes {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
     }
 }

@@ -49,6 +49,7 @@ const SearchContainer = () => {
                 />
             <div className={style.SearchOptions}>
                 <div className={style.SearchBy}>search by
+                    <div className={style.SearchByCheckboxes}>
                     {
                         Object.values(SearchFilter).map(filterName => 
                             <Checkbox 
@@ -58,6 +59,7 @@ const SearchContainer = () => {
                                 handleCheckbox={() => handleCheckbox(filterName)}
                             />)
                     }
+                    </div>
                 </div>
                 <Button name="Search" handleClick={sendSearchWordToStore}/>
             </div>

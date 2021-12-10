@@ -15,13 +15,39 @@
     text-transform: uppercase;
 }
 
-@media (max-width: 768px) {
+.SearchByCheckboxes {
+    display: flex;
+    gap: 15px;
+}
+
+@media (max-width: 924px) {
     .SearchBy {
         width: 40%;
     }
 }
-@media (max-width: 520px) {
+
+@media (max-width: 768px) {
     .SearchBy {
-        width: 55%;
+        width: 50%;
     }
 }
+
+@media (max-width: 520px) {
+    .SearchOptions {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .SearchBy {
+        flex-direction: column;
+        order: 1;
+        font-size: 0.8rem;
+        gap: 8px;
+        width: 100%;
+    }
+    .SearchByCheckboxes {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+

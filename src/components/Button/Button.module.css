@@ -19,3 +19,8 @@
         font-size: 1.3rem;
     }
 }
+@media (max-width: 520px) {
+    .searchBtn {
+        font-size: 1rem;
+    }
+}

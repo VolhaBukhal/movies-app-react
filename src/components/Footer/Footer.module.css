@@ -17,5 +17,10 @@
 
 .FooterGithub svg:hover {
     fill: var(--primery-color);
-  }
+}
 
+@media (max-width: 520px) {
+    .Footer {
+        width: 100%;
+    }
+}

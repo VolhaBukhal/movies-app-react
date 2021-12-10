@@ -13,3 +13,12 @@
     font-weight: 700;
     font-size: 2rem;
 }
+
+@media (max-width: 520px) {
+    .HeaderTitle {
+        font-size: 1.3rem;
+    }
+    .HeaderName {
+        font-size: .7rem;
+    }
+}
