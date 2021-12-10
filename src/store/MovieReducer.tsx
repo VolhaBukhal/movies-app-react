@@ -18,7 +18,7 @@ const initialState: State = {
     searchFilter: SearchFilter.Title,
     movieFilter: MovieFilter.RATING,
     searchWord: '',
-    moviesLimit: 10,
+    moviesLimit: 50,
 }
 
 export const MoiveReducer = (state: State = initialState, action: MovieAction): State => {
