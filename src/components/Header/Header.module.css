@@ -1,5 +1,5 @@
 .HeaderName {
-    font-size: 18px;
+    font-size: 1rem;
     text-align: left;
     text-transform: lowercase;
     color: var(--primery-color);
@@ -11,4 +11,5 @@
     text-transform: uppercase;
     text-align: left;
     font-weight: 700;
+    font-size: 2rem;
 }
