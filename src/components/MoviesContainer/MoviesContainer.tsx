@@ -13,8 +13,6 @@ const MoviesContainer = () => {
     const {movies, loading, searchFilter, searchWord, movieFilter, moviesLimit} = useSelector((state: RootState) => state.movies);
     const dispatch = useDispatch();
 
-    console.log('all mivies: ', movies);
-
     const filteredMovies = (searchWord.length === 0) ? [] : movies.filter( movie => {
         if(searchFilter === "Title") {
             return movie.title.toLowerCase().includes(searchWord.toLowerCase());
@@ -24,16 +22,12 @@ const MoviesContainer = () => {
     });
 
     if(movieFilter === "rating") {
-        console.log( 'is rating')
         filteredMovies.sort((a, b) => b.vote_average - a.vote_average);
     }
     if(movieFilter === "release date") {
-        console.log( 'is release date')
         filteredMovies.sort((a, b) => +b.release_date.split('-')[0] - +a.release_date.split('-')[0]);
     }
 
-    console.log("filtereMovies", filteredMovies);
-    
     useEffect( () => {
         dispatch(fetchMovies(moviesLimit));
     }, [dispatch, moviesLimit]);

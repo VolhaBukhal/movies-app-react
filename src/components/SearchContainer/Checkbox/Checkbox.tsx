@@ -8,9 +8,6 @@ interface MyProps {
 }
 const Checkbox:FC<MyProps> = ({name, isChecked, handleCheckbox}) => {
     
-    // const handleCheckbox = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    //     console.log(event.target.checked)
-    // }
     return (
         <div>
             <label className={style.container}>
