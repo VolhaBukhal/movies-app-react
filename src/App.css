@@ -1,7 +1,7 @@
 .App {
   text-align: center;
   margin: 0 auto;
-  width: 1000px;
+  max-width: 1000px;
   height: auto;
   padding: 40px 4rem;
   background: url('./assets/img/bg1.jpg');
@@ -12,19 +12,21 @@
 
  @media (max-width: 768px) {
   .App {
-    padding: 40px 3rem;
+    padding: 20px;
+    width: 750px;
   }
 }
 
 @media (max-width: 520px) {
   .App {
-    padding: 2rem 2rem;
+    width: 100%;
+    margin: 0;
   }
 }
 
 @media (max-width: 320px) {
   .App {
-    padding: 1rem 1rem;
+    max-width: 300px;
   }
 } 
 

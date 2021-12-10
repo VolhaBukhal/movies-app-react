@@ -49,7 +49,18 @@
 }
   
 @media (max-width: 520px) {
+    .InputRow {
+        width: 100%;
+    }
     .Input {
-        line-height: 3rem;
+        line-height: 2rem;
+        font-size: 0.8rem;
+    }
+    .Input::placeholder {
+        font-size: 0.8rem;
+    }
+    .searchIcon {
+        top: 35px;
+        right: 0;
     }
 }
