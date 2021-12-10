@@ -14,7 +14,6 @@ const SearchContainer = () => {
     const [isActive, setIsActive] = useState(false);
 
     const dispatch = useDispatch();
-    console.log('searchFilter ', searchFilter);
 
     const handleCheckbox = useCallback((filter: SearchFilter) => {
         dispatch(setSearchFilterMovie(filter))
@@ -22,7 +21,6 @@ const SearchContainer = () => {
     
 
     const handleSearchWord = (event: React.ChangeEvent<HTMLInputElement> ) => {
-        console.log('from handleSearchWord ', event.target.value);
         setIsActive(true);
         setInputWord(event.target.value);
     }

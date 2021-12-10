@@ -1,10 +1,7 @@
 import React from 'react';
 import './App.css';
-import SearchContainer from './components/SearchContainer'
-import Header from './components/Header'
-import MoviesContainer from './components/MoviesContainer'
-import Footer from './components/Footer'
-import {Outlet} from 'react-router-dom'
+import MainPage from './components/MainPage'
+
 import {BrowserRouter as Router,
   Routes,
   Route } from 'react-router-dom'
@@ -15,21 +12,8 @@ function App() {
     <Router>
       <div className="App">
         <Routes>
-          <Route path="/" element={ 
-            <>
-              <Header/>
-              <SearchContainer/>
-              <MoviesContainer/>
-              <Footer/>
-            </>}/>
-          <Route path="/movies" element={ 
-            <>
-              <Header/>
-              <SearchContainer/>
-              <MoviesContainer/>
-              <Footer/>
-              <Outlet/>
-            </>}>
+          <Route index element={ <MainPage/> }/>
+          <Route path="/movies" element={ <MainPage/> }>
             <Route path=":movieId" /> 
           </Route>
           <Route path="*" element={ <Page404/> }/>
